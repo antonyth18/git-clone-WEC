@@ -10,13 +10,13 @@ The client supports both high-level user commands (init, add) and the low-level 
 
 | Command | Type | Description |
 | --- | --- | --- |
-| node server.js init | High-Level | Initializes a new, empty Git repository (.git directory) in the current directory, setting up the objects, refs, and HEAD files. |
-| node server.js add <file> | High-Level | Adds specified files to the staging area. This command internally uses hash-object -w to create Blob objects and updates the local index file (.git/index.json). |
-| node server.js commit-tree | Low-Level | Creates the final Commit Object. It takes a Tree SHA, an optional Parent Commit SHA, and the commit message, bundles them together, hashes the result, writes the new commit object, and updates the branch reference (.git/refs/heads/main). |
-| node server.js hash-object -w <file> | Low-Level | Computes the SHA-1 hash for the given file's contents, formats it as a blob object, and writes the compressed object to the .git/objects directory. |
-| node server.js write-tree | Low-Level | Creates a Tree Object based on the files currently registered in the staging area (.git/index.json). It recursively processes directories and files, creating nested Tree objects as necessary, and returns the top-level Tree SHA. |
-| node server.js cat-file -p <sha> | Inspection | Reads and decompresses a Git object (Blob, Tree, or Commit) from the database and prints its human-readable contents to stdout. |
-| node server.js ls-tree <sha> | Inspection | Displays the contents of a Tree object, listing its mode, type, and name (similar to ls-tree --name-only). |
+| node main.js init | High-Level | Initializes a new, empty Git repository (.git directory) in the current directory, setting up the objects, refs, and HEAD files. |
+| node main.js add <file> | High-Level | Adds specified files to the staging area. This command internally uses hash-object -w to create Blob objects and updates the local index file (.git/index.json). |
+| node main.js commit-tree | Low-Level | Creates the final Commit Object. It takes a Tree SHA, an optional Parent Commit SHA, and the commit message, bundles them together, hashes the result, writes the new commit object, and updates the branch reference (.git/refs/heads/main). |
+| node main.js hash-object -w <file> | Low-Level | Computes the SHA-1 hash for the given file's contents, formats it as a blob object, and writes the compressed object to the .git/objects directory. |
+| node main.js write-tree | Low-Level | Creates a Tree Object based on the files currently registered in the staging area (.git/index.json). It recursively processes directories and files, creating nested Tree objects as necessary, and returns the top-level Tree SHA. |
+| node main.js cat-file -p <sha> | Inspection | Reads and decompresses a Git object (Blob, Tree, or Commit) from the database and prints its human-readable contents to stdout. |
+| node main.js ls-tree <sha> | Inspection | Displays the contents of a Tree object, listing its mode, type, and name (similar to ls-tree --name-only). |
 
 ## Architecture Overview
 
